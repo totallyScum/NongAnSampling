@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        >
+<ImageView
+    android:id="@+id/listview_text_image"
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:src="@mipmap/market_name"
+    ></ImageView>
+
+    <TextView
+        android:id="@+id/listview_text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="市场名称"
+        android:textColor="#000000"
+        android:layout_weight="1"
+android:layout_marginLeft="20dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/listview_text_data"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请选择"
+        android:textColor="@color/deepGrey"
+
+        android:layout_weight="1"
+        ></TextView>
+
+    </LinearLayout>
+<!--    <View-->
+<!--        android:background="@color/Grey"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="20dp"-->
+
+<!--        ></View>-->
+</LinearLayout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="#418FFE"
+    tools:ignore="MissingConstraints"
+    android:padding="20dp"
+    >
+<ImageView
+    android:id="@+id/user_icon"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+android:background="@mipmap/main_user"
+    android:layout_margin="20dp"
+    ></ImageView>
+
+
+    <LinearLayout
+        android:id="@+id/man_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/user_icon"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天塔检测师"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            ></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天塔检测中心"
+            android:textColor="#ffffff"
+            ></TextView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="316dp"
+        android:src="@mipmap/back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="6dp">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/user_icon"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/mission_first"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/main_mission"
+            app:layout_constraintTop_toBottomOf="@+id/user_icon"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日抽样"
+                android:textColor="#006CFA"
+
+                ></TextView>
+            <TextView
+                android:id="@+id/samplingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0批次"
+                android:textColor="#006CFA"
+                android:textStyle="bold"
+                ></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mission_second"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/main_mission"
+            app:layout_constraintTop_toBottomOf="@+id/user_icon"
+            app:layout_constraintLeft_toRightOf="@+id/mission_first"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日完成"
+                android:textColor="#006CFA"
+
+                ></TextView>
+            <TextView
+                android:id="@+id/detectionCount"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0批次"
+                android:textColor="#006CFA"
+                android:textStyle="bold"
+                ></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/main_mission"
+            app:layout_constraintTop_toBottomOf="@+id/user_icon"
+            app:layout_constraintLeft_toRightOf="@+id/mission_second"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日合格"
+                android:textColor="#006CFA"
+
+                ></TextView>
+            <TextView
+                android:id="@+id/trueDetectionCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0批次"
+                android:textColor="#006CFA"
+                android:textStyle="bold"
+                ></TextView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+<GridView
+    android:id="@+id/main_gridview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:numColumns="3"
+    android:gravity="center"
+    android:padding="10dp"
+    ></GridView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- Button正常状态下的背景 -->
+<item android:drawable="@drawable/login_btn_bg_normal" android:state_pressed="false"/>
+<!-- Button按下时的背景 -->
+<item android:drawable="@drawable/login_btn_bg_pressed" android:state_pressed="true"/>
+————————————————
+版权声明：本文为CSDN博主「leilifengxingmw」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/leilifengxingmw/article/details/50783574
+</selector>
