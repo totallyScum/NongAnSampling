@@ -8,20 +8,47 @@
     tools:context="fragment.ui.sample.SampleFragment"
     android:orientation="vertical"
     >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
     <ListView
         android:id="@+id/sample_text_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         tools:ignore="MissingConstraints">
     </ListView>
 
-    <ListView
-        android:id="@+id/sample_iamge_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-    </ListView>
-<!--    <FrameLayout-->
+<!--    <ListView-->
+<!--        android:id="@+id/sample_iamge_listview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        >-->
+<!--    </ListView>-->
+
+    <include layout="@layout/listview_rich_text_item"></include>
+    <include layout="@layout/listview_rich_text_item"></include>
+
+    <include layout="@layout/listview_rich_text_item"></include>
+
+    <include layout="@layout/listview_rich_text_item"></include>
+
+<Button
+    android:id="@+id/submit"
+    android:text="提交"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"></Button>
+
+</LinearLayout>
+    </ScrollView>
+
+    <!--    <FrameLayout-->
 <!--        android:id="@+id/sample_pic"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"-->

@@ -2,6 +2,8 @@ package com.chen.nongansampling.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,17 +44,29 @@ public class ListviewTextAdapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = LayoutInflater.from(activity).inflate(R.layout.listview_text_item,null);
-        ImageView imageView = (ImageView) view.findViewById(R.id.listview_text_image);
-        TextView data = (TextView) view.findViewById(R.id.listview_text_data);
-        TextView name = (TextView) view.findViewById(R.id.listview_text_name);
+        if (list.get(position).getComplicated()!=null&&list.get(position).getComplicated()==true)
+        {
+            Log.d("LayoutInflater","true");
+            View view = LayoutInflater.from(activity).inflate(R.layout.listview_rich_text_item, null);
+//            ImageView imageView = (ImageView) view.findViewById(R.id.listview_text_image);
+//            TextView data = (TextView) view.findViewById(R.id.listview_text_data);
+//            TextView name = (TextView) view.findViewById(R.id.listview_text_name);
+//            imageView.setImageResource(list.get(position).getImageSrc());
+//            data.setText((String) list.get(position).getData());
+//            name.setText(list.get(position).getName());
+            return view;
 
-
-        imageView.setImageResource(list.get(position).getImageSrc());
-        data.setText((String)list.get(position).getData());
-        name.setText(list.get(position).getName());
+        }else {
+            View view = LayoutInflater.from(activity).inflate(R.layout.listview_text_item, null);
+            ImageView imageView = (ImageView) view.findViewById(R.id.listview_text_image);
+            TextView data = (TextView) view.findViewById(R.id.listview_text_data);
+            TextView name = (TextView) view.findViewById(R.id.listview_text_name);
+            imageView.setImageResource(list.get(position).getImageSrc());
+            data.setText((String) list.get(position).getData());
+            name.setText(list.get(position).getName());
+            return view;
+        }
 
      //   return null;
-        return view;
     }
 }

@@ -4,6 +4,15 @@ public class ListviewBean <T>{
     private int imageSrc;
     private String name;
     private T data;
+    private Boolean Complicated;
+
+    public Boolean getComplicated() {
+        return Complicated;
+    }
+
+    public void setComplicated(Boolean complicated) {
+        Complicated = complicated;
+    }
 
     public int getImageSrc() {
         return imageSrc;
