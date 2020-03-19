@@ -1,6 +1,8 @@
 package com.chen.nongansampling.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,16 +10,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chen.nongansampling.R;
 import com.chen.nongansampling.adapter.ListviewTextAdapter;
 import com.chen.nongansampling.bean.ui.ListviewBean;
+import com.chen.nongansampling.constant.ComParamContact;
+import com.chen.nongansampling.fragment.RiskMonitorActivity;
+import com.chen.nongansampling.ui.login.LoginActivity;
+import com.chen.nongansampling.utils.StorageUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SettingActivity extends AppCompatActivity {
 @BindView(R.id.setting_listview)
     ListView listView;
+    @BindView(R.id.unLogin)
+    Button unLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +66,14 @@ public class SettingActivity extends AppCompatActivity {
         list.add(list2);
         list.add(list3);
         list.add(list4);
-
-
-
         listView.setAdapter(new ListviewTextAdapter(list,getApplicationContext()));
-
-
+    }
+    @OnClick(R.id.unLogin)
+    public void onClick(){
+        StorageUtil.setLoginStatus(getApplicationContext(),false);
+        Intent intent=new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

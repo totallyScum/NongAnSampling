@@ -1,9 +1,13 @@
 package com.chen.nongansampling.presenter;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
+import com.chen.nongansampling.R;
 import com.chen.nongansampling.bean.LoginRequest;
 import com.chen.nongansampling.manager.DataManager;
 import com.chen.nongansampling.model.Account;
@@ -11,6 +15,8 @@ import com.chen.nongansampling.model.CallbackData;
 import com.chen.nongansampling.presenterView.BaseView;
 
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -26,6 +32,8 @@ public class LoginPresenter extends BasePresenter {
     private BaseView baseView;
     private CallbackData<Account> mLoginResponseBody;
     private Dialog mDialog;
+    @BindView(R.id.loading)
+    ProgressBar progressBar;
 
     public LoginPresenter(Context context){
         this.mContext = context;
@@ -42,6 +50,11 @@ public class LoginPresenter extends BasePresenter {
     //将处理结果绑定到对应的PresentView实例，这样Activity和PresentView实例绑定好之后，
     //Activity->PresentView->Presenter->retrofit的关系就打通了
     public void getLoginResponseInfo(LoginRequest loginRequest) {
+        progressBar = ((Activity)mContext).findViewById(R.id.loading);
+
+        progressBar.setVisibility(View.VISIBLE);
+
+
         DataManager.getInstance(mContext).getLoginResponseInfo(loginRequest)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -61,12 +74,18 @@ public class LoginPresenter extends BasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
+
+                        progressBar.setVisibility(View.INVISIBLE);
+
                         baseView.onError(e.toString());
                     }
 
                     @Override
                     public void onComplete() {
+
+
                         if (mLoginResponseBody != null) {
+                            progressBar.setVisibility(View.INVISIBLE);
                             baseView.onSuccess(mLoginResponseBody);
                         }
                         LoginPresenter.super.compositeDisposable.dispose();

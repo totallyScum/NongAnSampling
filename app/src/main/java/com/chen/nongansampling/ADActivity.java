@@ -40,7 +40,7 @@ public class ADActivity extends AppCompatActivity {
                 handler.sendEmptyMessage(0);
 
             }
-        }, 4000);
+        }, 2000);
 
 
     }

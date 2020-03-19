@@ -2,11 +2,14 @@ package com.chen.nongansampling.manager;
 
 import android.content.Context;
 
+import com.chen.nongansampling.bean.Callback;
 import com.chen.nongansampling.bean.LoginRequest;
 import com.chen.nongansampling.bean.OperatingBean;
 import com.chen.nongansampling.bean.RiskMonitoringResponseBean;
 import com.chen.nongansampling.bean.SimpleRequest;
 import com.chen.nongansampling.bean.TodayResponseBean;
+import com.chen.nongansampling.bean.sample.TypeList;
+import com.chen.nongansampling.bean.sample.insert.SamplingRequset;
 import com.chen.nongansampling.model.Account;
 import com.chen.nongansampling.model.CallbackData;
 import com.chen.nongansampling.model.Market;
@@ -17,6 +20,9 @@ import com.chen.nongansampling.retrofit.RetrofitUtil;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
 
 /**
  */
@@ -57,7 +63,7 @@ public class DataManager {
 
 
     public Observable<CallbackData<List<OperatingBean>>> getOperatingResponseInfo(SimpleRequest simpleRequest) {   //获取转机统计数
-        return mRetrofitService.getOperatingResponseInfo();
+        return mRetrofitService.getOperatingResponseInfo(simpleRequest);
 
     }
 
@@ -65,4 +71,30 @@ public class DataManager {
         public Observable<TodayResponseBean> getTodayResponseInfo(SimpleRequest simpleRequest){   //获取转机统计数
             return mRetrofitService.getTodayResponseInfo(simpleRequest);
         }
+
+
+
+    public Observable<CallbackData<List<TypeList>>> getSamplingNameResponseInfo(SimpleRequest simpleRequest) {   //获取转机统计数
+        return mRetrofitService.getSamplingNameResponseInfo(simpleRequest);
+    }
+
+        public Observable<CallbackData<List<TypeList>>> getDeTypeAndNameResponseInfo(SimpleRequest simpleRequest) {
+            return mRetrofitService.getDeTypeAndNameResponseInfo(simpleRequest);
+
+        }
+            public Observable<Callback> getInsertSamplingResponseInfo(SamplingRequset simpleRequest){
+                return mRetrofitService.getInsertSamplingResponseInfo(simpleRequest);
+
+
+
+
+
+
+
+
+    }
+
+
+
+
 }

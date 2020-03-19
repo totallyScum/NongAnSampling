@@ -11,7 +11,7 @@ public class CallbackData<T> {
     @SerializedName("AlertMessage")
     private String alertMessage;
    // @SerializedName(value = "Data", alternate = {"subjects", "result"})
-   @SerializedName(value = "Account",alternate = {"Data"})
+   @SerializedName(value = "Account",alternate = {"Data","TypeList"})
     private T data;
 
 

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.SampledFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mediumGrey"
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@mipmap/search_bg"
+            >
+
+
+        </EditText>
+
+    </View>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            >
+
+            <TextView
+                android:text="样品编号"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30px"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                ></TextView>
+            <TextView
+                android:text="摊位号"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30px"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                ></TextView>
+            <TextView
+                android:text="经营户"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30px"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                ></TextView>
+            <TextView
+                android:text="样品名称"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30px"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                ></TextView>
+            <TextView
+                android:text="市场名称"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30px"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                ></TextView>
+            <TextView
+                android:text="检测项目"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30px"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                ></TextView>
+
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</LinearLayout>
+</FrameLayout>

@@ -18,5 +18,7 @@
         android:id="@+id/gridview_text"
         android:text="采样任务"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        ></TextView>
 </LinearLayout>

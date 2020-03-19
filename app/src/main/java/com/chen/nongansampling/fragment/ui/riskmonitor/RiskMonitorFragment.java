@@ -21,13 +21,14 @@ import com.chen.nongansampling.bean.RiskMonitoringResponseBean;
 import com.chen.nongansampling.model.CallbackData;
 import com.chen.nongansampling.presenter.GetRiskMonitoringPresenter;
 import com.chen.nongansampling.presenterView.BaseView;
+import com.chen.nongansampling.presenterView.RiskMonitorView;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RiskMonitorFragment extends Fragment  implements BaseView {
+public class RiskMonitorFragment extends Fragment  implements RiskMonitorView {
 
     private RiskMonitorViewModel mViewModel;
     private GetRiskMonitoringPresenter marketPresenter=new GetRiskMonitoringPresenter(getContext());

@@ -3,6 +3,7 @@ package com.chen.nongansampling.app;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.StrictMode;
 import android.util.Log;
 
 import com.chen.nongansampling.constant.AppConstant;
@@ -34,6 +35,9 @@ public class BaseApplication extends Application {
         Log.d("注册时申请的APPID","注册时申请的APPID");
     //    initNet();
 
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        builder.detectFileUriExposure();
 
     }
 //    public void initNet(){

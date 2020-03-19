@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ImageView userSetting;
     // 图片封装为一个数组
     private int[] icon = { R.mipmap.main_sample_mission,R.mipmap.main_sample_doc,R.mipmap.main_sample_setting,R.mipmap.main_sample_anno,R.mipmap.main_sample_risk};
-    private String[] iconName = { "采样任务","经营户档案","设置","通知公告","风险检测" };
+    private String[] iconName = { "采样任务","经营户档案","设置","通知公告","风险监测" };
     private MainTablePresenter  marketPresenter=new MainTablePresenter();
 
     @BindView(R.id.samplingCount)
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ButterKnife.bind(this);
         gview = (GridView) findViewById(R.id.main_gridview);
         //新建List
@@ -85,8 +86,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @OnClick(R2.id.user_icon )   //给 button1 设置一个点击事件
     public void showToast(){
-         Intent intent=new Intent(this, SettingActivity.class);
-         startActivity(intent);
+
     }
 
     public List<Map<String, Object>> getData(){
@@ -115,6 +115,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Intent intent=new Intent(this, BusinessArchivesActivity.class);
                 startActivity(intent);
                 }break;
+            case 2:{
+                Intent intent=new Intent(this, SettingActivity.class);
+                startActivity(intent);
+            }break;
             case 4:{
                 Intent intent=new Intent(this, RiskMonitorActivity.class);
                 startActivity(intent);

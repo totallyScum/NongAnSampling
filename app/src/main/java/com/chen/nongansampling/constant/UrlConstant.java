@@ -11,10 +11,17 @@ public class UrlConstant {
 
     public static String getBaseUrl(Context context) {
 
-        SharedPreferences sharedPreferences= context.getSharedPreferences("data", Context.MODE_PRIVATE);
-        String ip=sharedPreferences.getString("IP",BASE_URL);
-        BASE_URL = ip;
-        return ip;
+        try {
+            SharedPreferences sharedPreferences= context.getSharedPreferences("data", Context.MODE_PRIVATE);
+            String ip=sharedPreferences.getString("IP",BASE_URL);
+            BASE_URL = ip;
+            return ip;
+
+        }catch (Exception e)
+        {
+            return BASE_URL;
+        }
+
     }
 
     public static void setBaseUrl(String baseUrl,Context context) {

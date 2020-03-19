@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -44,6 +45,7 @@ import com.chen.nongansampling.token.TokenManager;
 import com.chen.nongansampling.ui.login.LoginViewModel;
 import com.chen.nongansampling.ui.login.LoginViewModelFactory;
 import com.chen.nongansampling.utils.MD5;
+import com.chen.nongansampling.utils.StorageUtil;
 import com.tencent.bugly.crashreport.CrashReport;
 
 
@@ -55,6 +57,13 @@ public class LoginActivity extends BaseActivity implements BaseView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (StorageUtil.getLoginStatus(getApplicationContext()))
+        {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
         setContentView(R.layout.activity_login);
 
 
@@ -63,6 +72,8 @@ public class LoginActivity extends BaseActivity implements BaseView {
     //    CrashReport.testJavaCrash();
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
+
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
@@ -146,7 +157,7 @@ public class LoginActivity extends BaseActivity implements BaseView {
     //            loadingProgressBar.setVisibility(View.VISIBLE);
 //                loginViewModel.login(usernameEditText.getText().toString(),
 //                        passwordEditText.getText().toString());
-                onLogin("1","1");
+                onLogin(usernameEditText.getText().toString(),passwordEditText.getText().toString());
 //                Intent intent=new Intent(getApplicationContext(), MainActivity.class);
 //                startActivity(intent);
             }
@@ -159,8 +170,8 @@ public class LoginActivity extends BaseActivity implements BaseView {
     public void onLogin(final String name, final String pass) {
 
         LoginRequest loginRequest=new LoginRequest();
-        loginRequest.setLoginName("1");
-        loginRequest.setLoginPassword("1");
+        loginRequest.setLoginName(name);
+        loginRequest.setLoginPassword(pass);
         loginPresenter.getLoginResponseInfo(loginRequest);
 
 //        IProgressDialog mProgressDialog = new IProgressDialog() {
@@ -229,11 +240,40 @@ public class LoginActivity extends BaseActivity implements BaseView {
 
 
     public void initView(){
-        Drawable rightDrawable = getResources().getDrawable(R.mipmap.login_edit_user);
+
+
+        final EditText usernameEditText = findViewById(R.id.username);
+        final EditText passwordEditText = findViewById(R.id.password);
+
+        Drawable accountDrawable = getResources().getDrawable(R.mipmap.login_edit_user);
 
 //调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 
-        rightDrawable.setBounds(0, 0, rightDrawable.getMinimumWidth(), rightDrawable.getMinimumHeight());  // left, top, right, bottom
+        accountDrawable.setBounds(0, 0, 40, 40);  // left, top, right, bottom
+
+        usernameEditText .setCompoundDrawables(accountDrawable , null, null, null);//只放左边
+
+
+
+
+
+        Drawable passwordDrawable = getResources().getDrawable(R.mipmap.login_edit_password);
+
+        passwordDrawable.setBounds(0, 0, 40, 40);  // left, top, right, bottom
+
+        passwordEditText .setCompoundDrawables(passwordDrawable , null, null, null);//只放左边
+
+
+
+
+
+//        Drawable drawable = getResources().getDrawable(R.drawable.login_user);
+//        drawable .setBounds(0, 0, 40, 40);//第一个 0 是距左边距离，第二个 0 是距上边距离，40 分别是长宽
+//        etUserName .setCompoundDrawables(drawable , null, null, null);//只放左边
+
+
+
+
       //  usernameEditText.setCompoundDrawables(null, null, rightDrawable, null);
     }
 
@@ -249,14 +289,27 @@ public class LoginActivity extends BaseActivity implements BaseView {
 
     @Override
     public void onError(String result) {
-        Log.d("qqqq",result);
+Toast.makeText(this,"网络异常",Toast.LENGTH_LONG).show();
 
     }
 
     @Override
     public void onSuccess(Object resultData) {
                         Log.d("qqqq","2333555");
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
+            CallbackData<Account> account=(CallbackData<Account>)resultData;
+            if (account.getData()!=null)
+            {
+                StorageUtil.StoragePasswordAndAccount(account.getData().getLoginName(),account.getData().getLoginPassword(),getApplicationContext());
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+
+            }else {
+                Toast.makeText(this,"登陆失败",Toast.LENGTH_LONG).show();
+
+            }
+
+
+
     }
 }

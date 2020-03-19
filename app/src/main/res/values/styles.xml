@@ -34,4 +34,18 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+
+    <!-- popup选择获取图片对的途径 -->
+    <style name="popup_select_way">
+        <item name="android:windowEnterAnimation">@anim/popup_enter_up</item>
+        <item name="android:windowExitAnimation">@anim/popup_out_down</item>
+    </style>
+
+
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#ececec</item>
+        <item name="colorControlActivated">#ececec</item>
+    </style>
+
+
 </resources>

@@ -2,6 +2,7 @@ package com.chen.nongansampling.presenter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 
 import com.chen.nongansampling.bean.LoginRequest;
 import com.chen.nongansampling.bean.OperatingBean;
@@ -101,8 +102,9 @@ public class MarketPresenter extends BasePresenter {
 
                     @Override
                     public void onComplete() {
-                        if (callbackData != null) {
-                            marketView.getOperatorList(callbackData);
+                        if (operatorBeanList != null) {
+                            marketView.getOperatorList(operatorBeanList);
+                            Log.d("qqqqqq",operatorBeanList.toString());
                         }
                         MarketPresenter.super.compositeDisposable.dispose();
                     }

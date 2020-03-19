@@ -73,4 +73,9 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
+
+    implementation 'org.kymjs.kjframe:kjframe:2.4.6.2'
+
+    implementation 'me.jessyan:autosize:1.2.1' //今日头条屏幕适配方案
+
 }

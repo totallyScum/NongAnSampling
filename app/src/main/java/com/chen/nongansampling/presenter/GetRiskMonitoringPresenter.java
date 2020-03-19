@@ -8,6 +8,7 @@ import com.chen.nongansampling.model.Account;
 import com.chen.nongansampling.model.CallbackData;
 import com.chen.nongansampling.presenterView.BaseView;
 import com.chen.nongansampling.presenterView.BusinessArchivesView;
+import com.chen.nongansampling.presenterView.RiskMonitorView;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class GetRiskMonitoringPresenter extends BasePresenter{
     private Context mContext;
-    private BusinessArchivesView baseView;
+    private RiskMonitorView baseView;
 
     private CallbackData<Account> mLoginResponseBody;
 
@@ -36,7 +37,7 @@ public class GetRiskMonitoringPresenter extends BasePresenter{
 
     @Override
     public void BindPresentView(Object presentView) {
-        baseView = (BusinessArchivesView)presentView;
+        baseView = (RiskMonitorView)presentView;
 
     }
 

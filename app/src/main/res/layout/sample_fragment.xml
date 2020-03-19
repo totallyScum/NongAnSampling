@@ -18,12 +18,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
     <ListView
         android:id="@+id/sample_text_listview"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        tools:ignore="MissingConstraints">
-    </ListView>
+        android:layout_height="245dp"
+        android:divider="@drawable/list_divider"
+
+        android:dividerHeight="1dp"
+        tools:ignore="MissingConstraints"></ListView>
 
 <!--    <ListView-->
 <!--        android:id="@+id/sample_iamge_listview"-->
@@ -31,19 +34,44 @@
 <!--        android:layout_height="wrap_content"-->
 <!--        >-->
 <!--    </ListView>-->
+<View
+    android:layout_width="match_parent"
+    android:layout_height="5dp"
+    android:background="@color/mediumGrey"
+    ></View>
+    <include
+        android:id="@+id/sample_pic"
+        layout="@layout/listview_rich_text_item"></include>
+<!--    <include layout="@layout/listview_rich_text_item"></include>-->
 
-    <include layout="@layout/listview_rich_text_item"></include>
-    <include layout="@layout/listview_rich_text_item"></include>
+<!--    <include layout="@layout/listview_rich_text_item"></include>-->
 
-    <include layout="@layout/listview_rich_text_item"></include>
+<!--    <include layout="@layout/listview_rich_text_item"></include>-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/mediumGrey"
+        ></View>
 
-    <include layout="@layout/listview_rich_text_item"></include>
-
+    <include
+        android:id="@+id/sample_pic"
+        layout="@layout/listview_sign_item"></include>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/mediumGrey"
+        ></View>
 <Button
     android:id="@+id/submit"
     android:text="提交"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"></Button>
+    android:layout_width="200dp"
+    android:layout_height="40dp"
+    android:textColor="#ffffff"
+    android:layout_gravity="center"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/login_btn_selector"
+
+    ></Button>
 
 </LinearLayout>
     </ScrollView>
